@@ -54,7 +54,7 @@ public class StationService {
     }
 
     private Station returnStationById(Long id) {
-        return  stationRepository.findById(id).get();
+        return  stationRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Resource id: "+id+" not found!"));
     }
 
     private Station convertFromDTOToEntity(StationRequestDTO stationDTO) {
@@ -64,7 +64,7 @@ public class StationService {
         station.setLatitude(stationDTO.getLatitude());
         station.setLongitude(stationDTO.getLongitude());
         station.setFoundationDate(stationDTO.getFoundationDate());
-        station.setUF(stationDTO.getUF());
+        station.setUF(stationDTO.getUf());
         station.setRegionCode(stationDTO.getRegionCode());
         station.setWmoCode(stationDTO.getWmoCode());
 
@@ -89,8 +89,8 @@ public class StationService {
             station.setLongitude(stationDTO.getLongitude());
         }
 
-        if(stationDTO.getUF()!=null) {
-            station.setUF(stationDTO.getUF());
+        if(stationDTO.getUf()!=null) {
+            station.setUF(stationDTO.getUf());
         }
 
         if(stationDTO.getRegionCode()!=null) {

@@ -18,7 +18,7 @@ public class StationRequestDTO {
     private String regionCode;
 
     @NotNull
-    private String UF;
+    private String uf;
 
     @NotNull
     private String wmoCode;
@@ -38,7 +38,7 @@ public class StationRequestDTO {
     public StationRequestDTO(Station station) {
         this.stationName = station.getStationName();
         this.regionCode = station.getRegionCode();
-        this.UF = station.getUF();
+        this.uf = station.getUF();
         this.wmoCode = station.getWmoCode();
         this.latitude = station.getLatitude();
         this.longitude = station.getLongitude();

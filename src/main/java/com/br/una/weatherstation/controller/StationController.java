@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @RequiredArgsConstructor
@@ -36,7 +37,9 @@ public class StationController {
     }
 
     @PostMapping
-    public ResponseEntity<StationResponseDTO> save(@RequestBody StationRequestDTO stationDTO, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<StationResponseDTO> save(@RequestBody @Valid StationRequestDTO stationDTO, UriComponentsBuilder uriBuilder) {
+
+        System.out.println("------------------------------------------"+stationDTO.getUf());
 
         StationResponseDTO stationResponseDTO = stationService.save(stationDTO);
 
