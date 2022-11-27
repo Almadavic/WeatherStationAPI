@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-@Configuration
+//@Configuration
 public class ExtraConfig implements CommandLineRunner {
 
     @Autowired
